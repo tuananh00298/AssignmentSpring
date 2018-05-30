@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time-Slot </title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container w-75">
+    <div class="row " style="margin-top: 50px">
+        <div class="col-md-3 float-left">
+            <a class="navbar-brand" href="#">
+                <img th:src="@{/img/logo.png}" class="w-75 float-left">
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-3 text-muted mb-2 float-left">
+            <p th:text="${datetime}">Times slot day </p>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3">
+            <div class="mb-2 ">
+                <strong>TuanAnh</strong>
+                <a href="#">(Logout)</a>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <table class="table table-striped">
+            <tr>
+                <td class="col-md-3">Slot ID</td>
+                <td class="col-md-3">Timeslot</td>
+                <td class="col-md-2">Subject</td>
+                <td class="col-md-2">class ID</td>
+                <td class="col-md-2">Action</td>
+            </tr>
+            <tr th:each="attendance : ${pagination.getContent()}">
+                <td class="col-md-3" th:text="${attendance.id}"></td>
+                <td class="col-md-3" th:text="${attendance.timeSlotId}"></td>
+                <td class="col-md-2" th:text="${attendance.subjectId}"></td>
+                <td class="col-md-2" th:text="${attendance.codeClass}"></td>
+                <td class="col-md-2"><a class="btn btn-primary btn-sm"
+                       th:href="@{'/times/view' + ${attendance.codeClass}}">View</a></td>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
