@@ -9,6 +9,9 @@ public class Timeslots {
     private int slotId;
     private String time_slot;
 
+    public Timeslots() {
+    }
+
     public Timeslots(int slotId, String time_slot) {
         this.slotId = slotId;
         this.time_slot = time_slot;

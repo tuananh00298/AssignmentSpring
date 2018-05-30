@@ -23,7 +23,7 @@ public class TimeSlotController {
     @RequestMapping(path = "/times", method = RequestMethod.GET)
     public String getListProduct(Model model, @RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int limit){
         model.addAttribute("datetime", Calendar.getInstance().getTime());
-        model.addAttribute("pagination", attendanceSlotModel.findAll(PageRequest.of(page - 1, limit)));
+        model.addAttribute("listAttendance", attendanceSlotModel.findAll(PageRequest.of(page - 1, limit)));
         model.addAttribute("page", page);
         model.addAttribute("limit", limit);
         return "list-time";

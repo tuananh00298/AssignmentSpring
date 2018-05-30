@@ -38,9 +38,9 @@
                 <td class="col-md-2">class ID</td>
                 <td class="col-md-2">Action</td>
             </tr>
-            <tr th:each="attendance : ${pagination.getContent()}">
+            <tr th:each="attendance : ${listAttendance}">
                 <td class="col-md-3" th:text="${attendance.id}"></td>
-                <td class="col-md-3" th:text="${attendance.timeSlotId}"></td>
+                <td class="col-md-3" th:text="${attendance.timeSlotId.time_slot}"></td>
                 <td class="col-md-2" th:text="${attendance.subjectId}"></td>
                 <td class="col-md-2" th:text="${attendance.codeClass}"></td>
                 <td class="col-md-2"><a class="btn btn-primary btn-sm"

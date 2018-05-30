@@ -1,9 +1,6 @@
 package com.example.demo.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AttendanceSlot {
@@ -11,7 +8,8 @@ public class AttendanceSlot {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     private String codeClass;
-    private int timeSlotId;
+    @ManyToOne
+    private Timeslots timeSlotId;
     private String subjectId;
     private long checkDate;
     private int status;
@@ -21,13 +19,6 @@ public class AttendanceSlot {
 
     public AttendanceSlot(long checkDate){
         this.checkDate = System.currentTimeMillis();
-    }
-    public AttendanceSlot(String codeClass, int timeSlotId, String subjectId, long checkDate, int status) {
-        this.codeClass = codeClass;
-        this.timeSlotId = timeSlotId;
-        this.subjectId = subjectId;
-        this.checkDate = checkDate;
-        this.status = status;
     }
 
     public int getId() {
@@ -46,11 +37,11 @@ public class AttendanceSlot {
         this.codeClass = codeClass;
     }
 
-    public int getTimeSlotId() {
+    public Timeslots getTimeSlotId() {
         return timeSlotId;
     }
 
-    public void setTimeSlotId(int timeSlotId) {
+    public void setTimeSlotId(Timeslots timeSlotId) {
         this.timeSlotId = timeSlotId;
     }
 
